@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R语言实战 - 在线例题</title>
+<title>R语言教材 - 在线例题</title>
 <style>
 :root {
   --primary: #1a1a2e;
@@ -379,6 +379,9 @@ a{color:var(--accent);text-decoration:none;transition:var(--transition)}
 @media(max-width:640px){
   .code-body{font-size:12px;padding:12px 14px}
   .code-nums{font-size:12px;padding:12px 8px 12px 12px}
+  .res-body{padding:12px 10px}
+  .res-svg{border-radius:6px}
+  .res-img img{border-radius:6px}
 }
 /* Syntax colors (auto-switch with theme) */
 .code-body .comment{color:var(--hl-comment);font-style:italic}
@@ -438,13 +441,15 @@ a{color:var(--accent);text-decoration:none;transition:var(--transition)}
   font-size:11px;cursor:pointer;color:var(--code-copy-color);font-weight:500;transition:var(--transition);
 }
 .res-toggle:hover{background:var(--code-copy-hover-bg);color:var(--code-copy-hover-color)}
-.res-body{padding:16px 20px;background:var(--code-bg)}
+.res-body{padding:16px 20px;background:var(--code-bg);overflow-x:auto}
 .res-text{
   font-family:"Fira Code","Consolas",monospace;
   font-size:13px;line-height:1.7;white-space:pre-wrap;color:var(--code-text);
 }
-.res-svg{max-width:100%;height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;box-shadow:var(--shadow-sm)}
-.res-img{display:flex;justify-content:center}
+.res-svg{width:100%;max-width:100%;height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;box-shadow:var(--shadow-sm)}
+.res-svg svg{max-width:100%;height:auto}
+.res-img{max-width:100%;text-align:center}
+.res-img img{max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow-sm)}
 .res-caption{font-size:12px;color:var(--code-linenums);margin-top:12px;font-style:italic;padding:0 4px}
 
 /* Nav */
@@ -532,7 +537,7 @@ a{color:var(--accent);text-decoration:none;transition:var(--transition)}
     <div class="header-left">
       <div class="logo">R</div>
       <div>
-        <h1>R语言实战分析教材 · 在线例题</h1>
+        <h1>R语言教材 · 在线例题</h1>
         <div class="header-sub" id="headerSub">共 11 道例题</div>
       </div>
     </div>
@@ -559,7 +564,7 @@ a{color:var(--accent);text-decoration:none;transition:var(--transition)}
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
-  <footer class="footer">R语言实战分析教材配套在线例题 · 扫码即可查看。技术支持:知远科技</footer>
+  <footer class="footer">R语言教材配套在线例题 · 扫码即可查看</footer>
 </div>
 
 <script src="r-examples-data.js"></script>
@@ -608,7 +613,7 @@ function hlR(code){
 function lineNums(code){var n=code.split('\n').length,s='';for(var i=1;i<=n;i++)s+=i+'\n';return s}
 function renderRes(res){
   if(res.type==='svg')return'<div class="res-svg">'+res.content+'</div>';
-  if(res.type==='image')return'<div class="res-img"><img src="'+esc(res.content)+'" alt="'+esc(res.caption||'运行结果')+'" style="max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow-sm)"></div>';
+  if(res.type==='image')return'<div class="res-img"><img src="'+esc(res.content)+'" alt="'+esc(res.caption||'运行结果')+'"></div>';
   return'<pre class="res-text">'+esc(res.content)+'</pre>';
 }
 
@@ -623,7 +628,7 @@ function renderIndex(ch,q,tag){
   h+='<div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div><div class="hero-orb hero-orb-3"></div>';
   h+='<div class="hero-content">';
   h+='<div class="hero-badge">&#9679; 交互式在线例题库</div>';
-  h+='<div class="hero-title"><span class="grad">R语言实战分析</span><br>在线例题</div>';
+  h+='<div class="hero-title"><span class="grad">R语言教材</span><br>在线例题</div>';
   h+='<p class="hero-desc">精选 '+EXAMPLES.length+' 道例题，涵盖基础语法、数据处理、可视化与统计分析，边学边练</p>';
   h+='<div class="stats-row">';
   h+='<div class="stat-item"><div class="stat-val">'+EXAMPLES.length+'</div><div class="stat-lbl">道例题</div></div>';
